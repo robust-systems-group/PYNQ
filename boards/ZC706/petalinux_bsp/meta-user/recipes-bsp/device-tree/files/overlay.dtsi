@@ -1,0 +1,76 @@
+/dts-v1/;
+/plugin/;
+
+/{ 
+        compatible = "xlnx,zynq-7000";
+
+        fragment@0 {
+                target = <&amba>;
+
+                __overlay__ {
+                        axi_quad_spi@41e00000 {                                           
+                                compatible = "xlnx,axi-quad-spi-3.2\0xlnx,xps-spi-2.00.a";   
+                                xlnx,spi-mode = <0x00>;                                   
+                                clocks = <0x01 0x0f 0x01 0x0f>;                           
+                                bits-per-word = <0x08>;                                   
+                                clock-names = "ext_spi_clk\0s_axi_aclk";
+                                fifo-size = <0x010>;                     
+                                xlnx,num-ss-bits = <0x08>;              
+                                interrupt-parent = <0x04>;
+                                interrupts = <0x00 0x1d 0x04>;
+                                phandle = <0x4c>;                                   
+                                reg = <0x41e00000 0x10000>;          
+                                interrupt-names = "ip2intc_irpt";          
+                                num-cs = <0x08>;
+                                spidev@0 {
+                                        status="okay";
+                                        compatible = "rohm,dh2228fv";
+                                        spi-max-frequency = <10000000>;
+                                        reg = <0>;
+                                };
+                                spidev@1 {
+                                        status="okay";
+                                        compatible = "rohm,dh2228fv";
+                                        spi-max-frequency = <10000000>;
+                                        reg = <1>;
+                                };
+                                spidev@2 {
+                                        status="okay";
+                                        compatible = "rohm,dh2228fv";
+                                        spi-max-frequency = <10000000>;
+                                        reg = <2>;
+                                };
+                                spidev@3 {
+                                        status="okay";
+                                        compatible = "rohm,dh2228fv";
+                                        spi-max-frequency = <10000000>;
+                                        reg = <3>;
+                                };
+                                spidev@4 {
+                                        status="okay";
+                                        compatible = "rohm,dh2228fv";
+                                        spi-max-frequency = <10000000>;
+                                        reg = <4>;
+                                };
+                                spidev@5 {
+                                        status="okay";
+                                        compatible = "rohm,dh2228fv";
+                                        spi-max-frequency = <10000000>;
+                                        reg = <5>;
+                                };
+                                spidev@6 {
+                                        status="okay";
+                                        compatible = "rohm,dh2228fv";
+                                        spi-max-frequency = <10000000>;
+                                        reg = <6>;
+                                };
+                                spidev@7 {
+                                        status="okay";
+                                        compatible = "rohm,dh2228fv";
+                                        spi-max-frequency = <10000000>;
+                                        reg = <7>;
+                                };
+                        };
+                };
+        };
+};

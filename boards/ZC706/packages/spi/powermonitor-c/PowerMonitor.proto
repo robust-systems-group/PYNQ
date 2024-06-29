@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+message PowerData {
+  message PowerChannelData {
+    string name = 1;
+    double bus_voltage = 2;
+    double shunt_voltage = 3;
+    double current = 4;
+    double power = 5;
+  }
+  
+  repeated PowerChannelData channels = 1;
+  google.protobuf.Timestamp timestamp = 2;
+}
+
+/* sent from LabyrinthCli -> PowerMonitor so PowerMonitor can tell the remote
+ * DataLogger which app to log for, and to tell PowerMonitor when to start and
+ * stop measuring data.
+ * 
+ * PowerMonitor will forward the initial message with just the app name to the
+ * remote DataLogger so that it may save to a log file named after the app.
+ */
+message ControlData {
+    // process name we are monitoring
+    string app_name = 1;
+    // Tell whether to start/stop monitoring (CLI -> PowerMonitor)
+    // or start/stop logging (PowerMonitor -> DataLogger)
+    bool start = 2;
+    bool stop = 3;
+}

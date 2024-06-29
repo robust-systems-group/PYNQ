@@ -14,7 +14,7 @@ cd /home/xilinx
 mkdir -p jupyter_notebooks
 
 # clone and then install extra packages
-python3 -m pip install --upgrade git+https://github.com/Xilinx/PYNQ-Metadata.git
+python3 -m pip install --upgrade git+https://github.com/nocnokneo/PYNQ-Metadata.git
 python3	-m pip install --upgrade git+https://github.com/Xilinx/PYNQ-Utils.git
 
 cd pynq_git
